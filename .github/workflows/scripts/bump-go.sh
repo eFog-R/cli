@@ -49,7 +49,7 @@ echo "  → toolchain : $TOOLCHAIN_VERSION"
 
 # ---- Prepare Git branch ---------------------------------------------------
 CURRENT_GO_DIRECTIVE=$(grep -E '^go ' "$GO_MOD" | cut -d ' ' -f2)
-CURRENT_TOOLCHAIN_DIRECTIVE=$(grep -E '^toolchain ' "$GO_MOD" | cut -d ' ' -f2)
+CURRENT_TOOLCHAIN_DIRECTIVE=$(grep -E '^toolchain ' "$GO_MOD" | cut -d ' ' -f2 || true)
 
 if [[ "$CURRENT_GO_DIRECTIVE" = "$GO_DIRECTIVE_VERSION" && \
       "$CURRENT_TOOLCHAIN_DIRECTIVE" = "go$TOOLCHAIN_VERSION" ]]; then
